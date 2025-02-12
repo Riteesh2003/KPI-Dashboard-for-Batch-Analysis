@@ -1,0 +1,46 @@
+{
+  "testUser": {
+    "position": {
+      "graph1": {
+        "x": 10,
+        "y": -4
+      },
+      "timeline1": {
+        "x": 18,
+        "y": -1227
+      },
+      "circularGauge": {
+        "x": 2474,
+        "y": -602
+      },
+      "circularGauge2": {
+        "x": 1905,
+        "y": -1019
+      },
+      "emptyGrid1": {
+        "x": 675,
+        "y": -994
+      },
+      "emptyGrid2": {
+        "x": 2479,
+        "y": -1378
+      }
+    },
+    "colors": {
+      "dataset1": "red",
+      "dataset2": "blue",
+      "dataset3": "green",
+      "timelineColor1": "blue",
+      "timelineColor2": "blue",
+      "timelineColor3": "blue",
+      "[object Object]": {
+        "isTrusted": true
+      },
+      "color1": "#8a3a95"
+    },
+    "theme": "dark"
+  },
+  "undefined": {
+    "colors": {}
+  }
+}
