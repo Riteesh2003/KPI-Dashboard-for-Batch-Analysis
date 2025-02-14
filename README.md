@@ -46,7 +46,7 @@ _The theme setting is managed using Material-UI's ThemeProvider and stored for u
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend:** React.js, Material-UI, Plotly, Google Charts
 - **Backend Integration:** API calls handled via Axios / Fetch
