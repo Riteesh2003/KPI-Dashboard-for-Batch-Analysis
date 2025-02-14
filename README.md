@@ -20,22 +20,22 @@ A **React.js-based Batch Quality Analytics Dashboard** designed to monitor and v
 ### **1️ Login Screen**
 
 The user authentication page where users can log in securely.  
-![Login Screen](screenshots/ui1.png)
+![Login Screen](screenshots/ui1.PNG)
 
 ### **2️ Batches Table – Current & Historical Batches**
 
 Displays current and past batches with key batch details.  
-![Batches Table](screenshots/ui2.png)
+![Batches Table](screenshots/ui2.PNG)
 
 ### **3️ Dashboard View (Dark Mode)**
 
 The main analytics dashboard in dark mode, providing real-time insights.  
-![Dashboard - Dark Mode](screenshots/ui3.png)
+![Dashboard - Dark Mode](screenshots/ui3.PNG)
 
 ### **4️ Dashboard View (Light Mode)**
 
 The same analytics dashboard but in light mode for better visibility in bright environments.  
-![Dashboard - Light Mode](screenshots/ui4.png)
+![Dashboard - Light Mode](screenshots/ui4.PNGs)
 
 ---
 
