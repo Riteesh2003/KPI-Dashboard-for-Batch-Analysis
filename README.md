@@ -1,4 +1,4 @@
-# 🚀 Batch Quality Dashboard
+# Batch Quality Dashboard
 
 A **React.js-based Batch Quality Analytics Dashboard** designed to monitor and visualize key performance indicators (KPIs) for batch quality analysis. The dashboard provides **real-time insights**, interactive visualizations, and customizable filters to track batch performance efficiently.
 
@@ -17,25 +17,25 @@ A **React.js-based Batch Quality Analytics Dashboard** designed to monitor and v
 
 ## UI Screenshots
 
-### **1️ Login Screen**
+### Login Screen
 
 The user authentication page where users can log in securely.  
-![Login Screen](screenshots/ui1.PNG)
+![Login Screen](Screenshots/ui1.PNG)
 
-### **2️ Batches Table – Current & Historical Batches**
+### Batches Table – Current & Historical Batches
 
 Displays current and past batches with key batch details.  
-![Batches Table](screenshots/ui2.PNG)
+![Batches Table](Screenshots/ui2.PNG)
 
-### **3️ Dashboard View (Dark Mode)**
+### Dashboard View (Dark Mode)
 
 The main analytics dashboard in dark mode, providing real-time insights.  
-![Dashboard - Dark Mode](screenshots/ui3.PNG)
+![Dashboard - Dark Mode](Screenshots/ui3.PNG)
 
-### **4️ Dashboard View (Light Mode)**
+### Dashboard View (Light Mode)
 
 The same analytics dashboard but in light mode for better visibility in bright environments.  
-![Dashboard - Light Mode](screenshots/ui4.PNGs)
+![Dashboard - Light Mode](Screenshots/ui4.PNG)
 
 ---
 
@@ -49,7 +49,6 @@ _The theme setting is managed using Material-UI's ThemeProvider and stored for u
 ## 🛠 Tech Stack
 
 - **Frontend:** React.js, Material-UI, Plotly, Google Charts
-- **State Management:** Redux / Context API (if used)
 - **Backend Integration:** API calls handled via Axios / Fetch
 - **Styling:** CSS, Material-UI
 
