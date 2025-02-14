@@ -1,51 +1,70 @@
-# Batch Quality Dashboard
+# 🚀 Batch Quality Dashboard
 
 A **React.js-based Batch Quality Analytics Dashboard** designed to monitor and visualize key performance indicators (KPIs) for batch quality analysis. The dashboard provides **real-time insights**, interactive visualizations, and customizable filters to track batch performance efficiently.
 
-## **Key Features**
+---
+
+## Key Features
 
 **Real-time Batch Monitoring** – Track live batch status and quality metrics  
  **Interactive Visualizations** – Graphs and charts powered by Plotly & Google Charts  
  **Customizable Filters** – Filter data by product name, batch ID, and time range  
  **Modern UI** – Built with Material-UI for a clean and responsive design  
- **Scalable & Maintainable** – Modular React components for better code structure
+ **Scalable & Maintainable** – Modular React components for better code structure  
+ **Dark & Light Mode Support** – User-friendly UI with theme switching
 
-## **Tech Stack**
+---
+
+## UI Screenshots
+
+### **1️ Login Screen**
+
+The user authentication page where users can log in securely.  
+![Login Screen](screenshots/ui1.png)
+
+### **2️ Batches Table – Current & Historical Batches**
+
+Displays current and past batches with key batch details.  
+![Batches Table](screenshots/ui2.png)
+
+### **3️ Dashboard View (Dark Mode)**
+
+The main analytics dashboard in dark mode, providing real-time insights.  
+![Dashboard - Dark Mode](screenshots/ui3.png)
+
+### **4️ Dashboard View (Light Mode)**
+
+The same analytics dashboard but in light mode for better visibility in bright environments.  
+![Dashboard - Light Mode](screenshots/ui4.png)
+
+---
+
+## Dark & Light Mode Support
+
+The dashboard supports **both Dark Mode and Light Mode**, allowing users to switch based on their preference.
+_The theme setting is managed using Material-UI's ThemeProvider and stored for user convenience._
+
+---
+
+## 🛠 Tech Stack
 
 - **Frontend:** React.js, Material-UI, Plotly, Google Charts
-- **State Management:** (If using, Redux / Context API)
+- **State Management:** Redux / Context API (if used)
 - **Backend Integration:** API calls handled via Axios / Fetch
 - **Styling:** CSS, Material-UI
 
 ---
 
-# Getting Started with Create React App
+## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### **Installation & Setup**
 
-In the project directory, you can run:
+Clone the repository and install dependencies:
 
-### `npm start`
-
-Runs the app in the development mode.  
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.  
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.  
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.  
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.  
-Your app is ready to be deployed!
-
-For more details, check the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+git clone https://github.com/your-username/repo-name.git
+cd repo-name
+npm install
+```

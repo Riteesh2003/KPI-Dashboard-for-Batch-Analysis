@@ -32,6 +32,11 @@ import {
 import { ChromePicker } from "react-color"; // Import color picker
 import { Rnd } from "react-rnd";
 
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator"; // Drag Icon
+import DarkModeIcon from "@mui/icons-material/DarkMode"; // Dark Mode Icon
+import LightModeIcon from "@mui/icons-material/LightMode"; // Light Mode Icon
+import { IconButton } from "@mui/material";
+
 const buttonStyles = {
   mb: 2,
   textAlign: "left", // Ensures text is aligned to the left
@@ -112,7 +117,7 @@ const Dashboard = () => {
       try {
         // Fetch positions, colors, and theme
         const positionResponse = await axios.post(
-          "http://192.168.1.20:5000/api/card-position",
+          "http://192.168.1.46:5000/api/card-position",
           { username: "testUser" }
         );
         if (positionResponse.data && positionResponse.data.position) {
@@ -127,7 +132,7 @@ const Dashboard = () => {
 
         // Fetch general data including graph data, currentValue, and averageValue
         const dataResponse = await axios.get(
-          "http://192.168.1.20:5000/api/data"
+          "http://192.168.1.46:5000/api/data"
         );
         if (dataResponse.data) {
           // Set graph data
@@ -240,7 +245,7 @@ const Dashboard = () => {
       prevPositions.current = newPosition;
 
       axios
-        .post("http://192.168.1.20:5000/api/save-card-position", {
+        .post("http://192.168.1.46:5000/api/save-card-position", {
           username: "testUser",
           position: newPosition,
           colors: colors, // Include colors in the payload
@@ -266,7 +271,7 @@ const Dashboard = () => {
 
   const handleSaveColor = () => {
     axios
-      .post("http://192.168.1.20:5000/api/save-card-position", {
+      .post("http://192.168.1.46:5000/api/save-card-position", {
         username: "testUser",
         position: positions,
         colors: colors,
@@ -286,7 +291,7 @@ const Dashboard = () => {
     setTheme(newTheme === "dark" ? darkTheme : lightTheme);
 
     axios
-      .post("http://192.168.1.20:5000/api/save-card-position", {
+      .post("http://192.168.1.46:5000/api/save-card-position", {
         username: "testUser",
         position: positions,
         colors: colors,
@@ -398,7 +403,14 @@ const Dashboard = () => {
             />
           </div>
 
-          <ThemeToggle currentTheme={theme} onToggle={handleThemeToggle} />
+          {/* Theme Toggle with Sun/Moon Icon */}
+          <IconButton onClick={handleThemeToggle} color="inherit">
+            {theme.palette.mode === "dark" ? (
+              <LightModeIcon />
+            ) : (
+              <DarkModeIcon />
+            )}
+          </IconButton>
           <Button color="inherit" onClick={handleLogout}>
             Logout
           </Button>
@@ -669,7 +681,7 @@ const Dashboard = () => {
                           y: graphData.graph1.dataset1?.y || [],
                           type: "scatter",
                           mode: "lines+markers",
-                          name: "Dataset 1",
+                          name: "Temprture",
                           marker: { color: colors.dataset1 || "blue" },
                           line: { color: colors.dataset1 || "blue" },
                         },
@@ -678,7 +690,7 @@ const Dashboard = () => {
                           y: graphData.graph1.dataset2?.y || [],
                           type: "scatter",
                           mode: "lines+markers",
-                          name: "Dataset 2",
+                          name: "Preasure",
                           marker: { color: colors.dataset2 || "green" },
                         },
                         {
@@ -686,7 +698,7 @@ const Dashboard = () => {
                           y: graphData.graph1.dataset3?.y || [],
                           type: "scatter",
                           mode: "lines+markers",
-                          name: "Dataset 3",
+                          name: "PH",
                           marker: { color: colors.dataset3 || "red" },
                         },
                       ]}
@@ -1171,7 +1183,7 @@ const Dashboard = () => {
             </Grid>
 
             <Grid container spacing={2}>
-              <Grid item xs={6}>
+              {/* <Grid item xs={6}>
                 {positions.emptyGrid2 && (
                   <Rnd
                     disableDragging={!isDraggingEnabled} // Control dragging based on state
@@ -1194,7 +1206,99 @@ const Dashboard = () => {
                           theme.palette.mode === "dark" ? "#1e1e1e" : "#F6F6F6",
                       }}
                     >
-                      {/* Content of your component goes here */}
+                     
+                    </Box>
+                  </Rnd>
+                )}
+              </Grid> */}
+
+              <Grid item xs={6}>
+                {positions.emptyGrid2 && (
+                  <Rnd
+                    disableDragging={!isDraggingEnabled} // Control dragging based on state
+                    size={size}
+                    position={{
+                      x: positions.emptyGrid2.x,
+                      y: positions.emptyGrid2.y,
+                    }}
+                    onDragStop={(e, data) => handleStop(e, data, "emptyGrid2")}
+                    onResizeStop={handleResizeStop} // Handle resizing locally
+                    minWidth={200} // Minimum width
+                    minHeight={150} // Minimum height
+                  >
+                    <Box
+                      ref={(el) => (componentRefs.current["emptyGrid2"] = el)}
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor:
+                          theme.palette.mode === "dark" ? "#1e1e1e" : "#F6F6F6",
+                        color: theme.palette.text.primary, // Text color based on theme
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        position: "relative", // Ensures the status bar is positioned relative to this container
+                      }}
+                    >
+                      {/* Status Bar */}
+                      <Box
+                        sx={{
+                          width: "90%",
+                          height: "10px",
+                          backgroundColor:
+                            theme.palette.mode === "dark"
+                              ? "orange"
+                              : "darkorange", // Adjusted for visibility in both themes
+                          color: "#fff",
+                          display: "flex",
+                          alignItems: "center",
+                          padding: "0 10px",
+                          position: "absolute", // Positioned absolutely within the container
+                          top: 30,
+                          left: 20,
+                          borderTopLeftRadius: "8px",
+                          borderTopRightRadius: "5px",
+                          boxSizing: "border-box",
+                        }}
+                      />
+
+                      {/* Content */}
+                      <Box
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          paddingTop: "50px", // Adjusted to make space for the status bar
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Typography
+                          sx={{ fontSize: "24px", paddingBottom: "5px" }}
+                        >
+                          M2_Temp
+                        </Typography>
+
+                        <Typography
+                          sx={{ fontSize: "40px", paddingBottom: "5px" }}
+                        >
+                          19 Deg C
+                        </Typography>
+
+                        <Typography
+                          sx={{ fontSize: "22px", paddingTop: "10px" }}
+                        >
+                          Reference range
+                        </Typography>
+
+                        <Typography
+                          sx={{ fontSize: "30px", paddingTop: "5px" }}
+                        >
+                          20 Deg C - 30 Deg C
+                        </Typography>
+                      </Box>
                     </Box>
                   </Rnd>
                 )}

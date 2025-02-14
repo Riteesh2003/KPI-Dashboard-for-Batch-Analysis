@@ -119,24 +119,24 @@ const generateNewData = () => {
       },
     },
     timeline: [
-      ["President", "Name", "Start", "End"],
+      ["Batch Process", "Stage", "Start", "End"],
       [
-        "Washington",
-        "George Washington",
-        generateRandomDate(1789, 1797),
-        generateRandomDate(1797, 1797),
+        "Mixing",
+        "Raw Material Mixing",
+        generateRandomDate(2023, 2024),
+        generateRandomDate(2024, 2024),
       ],
       [
-        "Adams",
-        "John Adams",
-        generateRandomDate(1797, 1801),
-        generateRandomDate(1801, 1809),
+        "Heating",
+        "Temperature Control",
+        generateRandomDate(2024, 2025),
+        generateRandomDate(2025, 2025),
       ],
       [
-        "Jefferson",
-        "Thomas Jefferson",
-        generateRandomDate(1801, 1809),
-        generateRandomDate(1809, 1809),
+        "Cooling",
+        "Final Batch Cooling",
+        generateRandomDate(2025, 2026),
+        generateRandomDate(2026, 2026),
       ],
     ],
   };
@@ -252,50 +252,6 @@ app.get("/api/data", (req, res) => {
   }
 });
 
-// Endpoint to serve data.json file
-//app.get('/api/data', (req, res) => {
-//try {
-// const data = readData();
-//res.json(data);
-//} catch (error) {
-//console.error('Error reading data file:', error);
-// res.status(500).json({ success: false, error: 'Internal Server Error' });
-// }
-//});
-
-//Endpoint to get timeline data
-//app.get('/api/timeline-data', (req, res) => {
-// try {
-// const data = readData();
-//const timelineData = data.timelines || {}; // Adjust according to the structure of your data.json
-//res.json(timelineData);
-// } catch (error) {
-//  console.error('Error reading timeline data:', error);
-// res.status(500).json({ success: false, error: 'Internal Server Error' });
-// }
-//});
-
-// Endpoint to update currentValue and averageValue
-//app.post('/api/update-values', (req, res) => {
-// const { currentValue, averageValue } = req.body;
-
-//if (currentValue === undefined || averageValue === undefined) {
-//return res.status(400).json({ success: false, error: 'Invalid input' });
-//}
-
-//try {
-//const data = readData();
-//data.currentValue = currentValue;
-//data.averageValue = averageValue;
-
-//fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf8');
-//res.json({ success: true });
-//} catch (error) {
-//console.error('Error updating values:', error);
-//res.status(500).json({ success: false, error: 'Internal Server Error' });
-// }
-//});
-
 // Root endpoint to verify server is running
 app.get("/", (req, res) => {
   res.send("Welcome to the API server");
@@ -303,5 +259,5 @@ app.get("/", (req, res) => {
 
 // Listen on all network interfaces
 app.listen(port, () => {
-  console.log(`Server running on http://192.168.1.20:${port}`);
+  console.log(`Server running on http://192.168.1.46:${port}`);
 });
